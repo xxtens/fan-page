@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Manga</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<audio id="hover-sound">
+  <source src="sounds/hover.mp3" type="audio/mp3">
+</audio>
+
+
+
+<div id="page-transition"></div>
+
+<header>
+  <img src="photos/Berserk_anime_logo.png" alt="Side Icon" class="side-icon" />
+  <div class="title-wrapper">
+    <img src="sign sacrifice.png" alt="Sacrifice Mark" class="logo" />
+    <h1 class="site-title">Manga Of Berserk </h1>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="manga.html">Manga</a>
+  <a href="author.html">Author</a>
+  <a href="episodes.html">Episodes</a>
+  <a href="contact.html">Contact</a>
+</nav>
+<section>
+  <h2>What is Berserk?</h2>
+  <p>Berserk is set in a medieval-inspired dark fantasy world and follows Guts, a mercenary with a giant sword, as he struggles against demons, fate, and betrayal...</p>
+
+
+
+  <video autoplay loop controls  width="100%" style="border-radius: 10px;">
+    <source src="Guts Edit.mp4" type="video/mp4" >
+    Your browser does not support the video tag.
+  </video>
+<h6><button onclick="document.getElementById('hover-sound').pla(y)()">اختبر الصوت</button></h6>
+
+<h1><u>Manga cover 🧾:</u></h1>
+  <div class="manga-column">
+  <div class="manga-item">
+    <img src="manga 1.jpg" alt="Manga Panel 1" />
+	<br><br>
+    <p>The cover of *Berserk* Volume 1 introduces Guts in a powerful, aggressive pose, wielding his crossbow and cloaked in mystery, setting the stage for the dark fantasy epic by Kentaro Miura.
+
+Would you like a line for each volume you upload, or are you planning something bigger with these?
+</p>
+  </div>
+  <div class="manga-item">
+    <img src="manga 2.jpg" alt="Manga Panel 2" />
+	<br><br>
+    <p><b>The cover of Berserk Volume 3, illustrated by Kentaro Miura, depicts Guts wielding his massive sword over slain demonic creatures, embodying the dark and brutal tone of the series.
+
+Would you like a brief summary of this volume’s story?</b></p>
+  </div>
+</div>
+
+</section>
+
+<footer>
+  <p>&copy; 2025 Berserk Fan Community</p>
+</footer>
+<script>
+  const clickSound = new Audio("mouse click audio/click_2.mp3");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // يمنع التوجيه الفوري
+
+      // تشغيل الصوت أولاً
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      // بعد أن يبدأ تشغيل الصوت، نعيد التوجيه للصفحة المطلوبة
+      setTimeout(() => {
+        window.location.href = this.href;
+      },  280); // يمكن تعديل الوقت حسب مدة الصوت
+    });
+  });
+</script>
+
+<script>
+  // تأثير دخول الصفحة
+  document.body.classList.add("fade-in");
+
+  // تأثير عند الانتقال لرابط
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return; // تجاهل الروابط الداخلية أو الزائفة
+
+      e.preventDefault(); // إيقاف التنقل المؤقت
+      document.body.classList.add("fade-out");
+
+      // بعد انتهاء تأثير الخروج، انتقل للرابط
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // نفس مدة الانتقال الموجودة في CSS
+    });
+  });
+</script>
+
+<script>
+  const clickSound = new Audio("sowrd-click.mp3");
+  const transitionOverlay = document.getElementById("page-transition");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+
+      if (!url || url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+
+      // تشغيل صوت النقر
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      // تفعيل طبقة التلاشي
+      transitionOverlay.classList.add("active");
+
+      // الانتقال بعد التلاشي
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // المدة تتطابق مع transition في CSS
+    });
+  });
+
+  // عند الدخول إلى الصفحة، اخفاء طبقة التلاشي (لإظهار fade-in)
+  window.addEventListener("DOMContentLoaded", () => {
+    transitionOverlay.classList.remove("active");
+  });
+</script>
+
+<script>
+  document.body.classList.add("fade-in");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600);
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hoverSound = document.getElementById("hover-sound");
+
+    document.querySelectorAll(".manga-item img").forEach(img => {
+      img.addEventListener("mouseenter", () => {
+        hoverSound.currentTime = 0;
+        hoverSound.play().catch((error) => {
+          console.log("لم يتم تشغيل الصوت تلقائيًا. قد تحتاج إلى تفاعل من المستخدم أولًا.", error);
+        });
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>

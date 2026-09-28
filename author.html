@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Author</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="page-transition"></div>
+
+
+<header>
+  <img src="photos/Berserk_anime_logo.png" alt="Side Icon" class="side-icon" />
+  <div class="title-wrapper">
+    <img src="sign sacrifice.png" alt="Sacrifice Mark" class="logo" />
+    <h1 class="site-title">About the Author</h1>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="manga.html">Manga</a>
+  <a href="author.html">Author</a>
+  <a href="episodes.html">Episodes</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+  <h2>Kentaro Miura</h2>
+  <p>Kentaro Miura (1966–2021) was the genius behind Berserk. Known for his intricate artwork and dark storytelling, Miura revolutionized the manga world. He started Berserk in 1989, and it became a worldwide phenomenon with its deep philosophical themes and brutal realism.</p>
+<br>
+<p>Kentaro Miura was a legendary Japanese manga artist, best known as the creator of the dark fantasy series Berserk. He was born on July 11, 1966, and showed artistic talent from a very young age, creating his first manga at just 10 years old.
+
+Miura began working on Berserk in 1989, and it quickly became known for its deep storytelling, rich characters, and incredibly detailed artwork. The series is praised for exploring mature themes like trauma, ambition, sacrifice, and the struggle between fate and free will.
+
+He was known for his perfectionism, which led to long gaps between chapter releases, but fans remained loyal because of the incredible quality of his work. Sadly, Miura passed away on May 6, 2021, from an aortic dissection. His death deeply affected fans around the world and left Berserk unfinished.
+
+Despite that, Miura’s legacy continues, and his work remains one of the most influential in manga history.</p>
+  <img src="Kentaro Miura.webp" alt="Kentaro Miura" style="width: 100%; border-radius: 10px;" />
+</section>
+
+<footer>
+  <p>&copy; 2025 Berserk Fan Community</p>
+</footer>
+<script>
+  const clickSound = new Audio("mouse click audio/click_2.mp3");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // يمنع التوجيه الفوري
+
+      // تشغيل الصوت أولاً
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      // بعد أن يبدأ تشغيل الصوت، نعيد التوجيه للصفحة المطلوبة
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 280); // يمكن تعديل الوقت حسب مدة الصوت
+    });
+  });
+</script>
+
+<script>
+  // تأثير دخول الصفحة
+  document.body.classList.add("fade-in");
+
+  // تأثير عند الانتقال لرابط
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return; // تجاهل الروابط الداخلية أو الزائفة
+
+      e.preventDefault(); // إيقاف التنقل المؤقت
+      document.body.classList.add("fade-out");
+
+      // بعد انتهاء تأثير الخروج، انتقل للرابط
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // نفس مدة الانتقال الموجودة في CSS
+    });
+  });
+</script>
+
+<script>
+  const clickSound = new Audio("sowrd-click.mp3");
+  const transitionOverlay = document.getElementById("page-transition");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+
+      if (!url || url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+
+      // تشغيل صوت النقر
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      // تفعيل طبقة التلاشي
+      transitionOverlay.classList.add("active");
+
+      // الانتقال بعد التلاشي
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // المدة تتطابق مع transition في CSS
+    });
+  });
+
+  // عند الدخول إلى الصفحة، اخفاء طبقة التلاشي (لإظهار fade-in)
+  window.addEventListener("DOMContentLoaded", () => {
+    transitionOverlay.classList.remove("active");
+  });
+</script>
+
+<script>
+  document.body.classList.add("fade-in");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600);
+    });
+  });
+</script>
+
+
+</body>
+</html>

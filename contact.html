@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Berserk Fan Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+       .logo {
+	
+  position: absolute;
+  
+  top: -40%;
+  left: 20%;
+  }
+  .site-title {
+  position: relative;
+  z-index: 2;
+  
+  color: white;
+  margin: auto;
+  }
+  </style>
+</head>
+<body>
+
+<div id="page-transition"></div>
+
+
+<header>
+  <img src="photos/Berserk_anime_logo.png" alt="Side Icon" class="side-icon" />
+  <div class="title-wrapper">
+    <img src="sign sacrifice.png" alt="Sacrifice Mark" class="logo" />
+    <h1 class="site-title">Contact Us</h1>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="manga.html">Manga</a>
+  <a href="author.html">Author</a>
+  <a href="episodes.html">Episodes</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+  <h2>We'd love to hear from you!</h2>
+  <form action="#" method="post" class="contact-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required/>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required/>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Berserk Fan Community</p>
+</footer>
+<script>
+  const clickSound = new Audio("mouse click audio/click_2.mp3");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // يمنع التوجيه الفوري
+
+      // تشغيل الصوت أولاً
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      // بعد أن يبدأ تشغيل الصوت، نعيد التوجيه للصفحة المطلوبة
+      setTimeout(() => {
+        window.location.href = this.href;
+      },  280); // يمكن تعديل الوقت حسب مدة الصوت
+    });
+  });
+</script>
+
+<script>
+  // تأثير دخول الصفحة
+  document.body.classList.add("fade-in");
+
+  // تأثير عند الانتقال لرابط
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return; // تجاهل الروابط الداخلية أو الزائفة
+
+      e.preventDefault(); // إيقاف التنقل المؤقت
+      document.body.classList.add("fade-out");
+
+      // بعد انتهاء تأثير الخروج، انتقل للرابط
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // نفس مدة الانتقال الموجودة في CSS
+    });
+  });
+</script>
+
+<script>
+  const clickSound = new Audio("sowrd-click.mp3");
+  const transitionOverlay = document.getElementById("page-transition");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+
+      if (!url || url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+
+      // تشغيل صوت النقر
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      // تفعيل طبقة التلاشي
+      transitionOverlay.classList.add("active");
+
+      // الانتقال بعد التلاشي
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // المدة تتطابق مع transition في CSS
+    });
+  });
+
+  // عند الدخول إلى الصفحة، اخفاء طبقة التلاشي (لإظهار fade-in)
+  window.addEventListener("DOMContentLoaded", () => {
+    transitionOverlay.classList.remove("active");
+  });
+</script>
+
+<script>
+  document.body.classList.add("fade-in");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600);
+    });
+  });
+</script>
+
+
+</body>
+</html>

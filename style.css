@@ -1,0 +1,487 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: black;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.logo {
+   width: 100px;
+  animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 5px red);
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 20px crimson);
+    transform: scale(1.1);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px red);
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+nav {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+nav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #555;
+}
+
+section {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  text-align: center;
+  background-color: black;
+  padding: 20px;
+  color: white;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  color: white;
+}
+
+.contact-form button {
+  background-color: crimson;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: darkred;
+}
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.7;
+  filter: brightness(0.5) contrast(1.2);
+}
+#play-audio {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 999;
+  transition: background-color 0.3s;
+}
+
+#play-audio:hover {
+  background-color: darkred;
+}
+body, a, a:hover {
+  cursor: url("cursors/guts-sword.cur"), auto;
+}
+
+.character-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 40px auto;
+  width: 80%;
+  max-width: 700px;
+}
+
+.character-item {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid #444;
+  border-radius: 12px;
+  overflow: hidden;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.character-item img {
+  width: 180px;
+  height: auto;
+  border-right: 1px solid #333;
+}
+
+.character-text {
+  padding: 15px;
+  text-align: right;
+  direction: rtl;
+}
+.character-item img {
+  width: 180px;
+  height: auto;
+  border-right: 1px solid #333;
+  transition: transform 0.3s; /* لإضافة التحريك */
+}
+
+.character-item img:hover {
+  transform: scale(1.05); /* تأثير التكبير */
+}
+
+.character-text h2 {
+  font-size: 1.6rem;
+  color: crimson;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+}
+
+.character-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-family: 'Georgia', serif;
+  color: #e0e0e0;
+}
+
+.character-item {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #222;
+  border-radius: 12px;
+  overflow: hidden;
+  color: white;
+  box-shadow: 0 0 12px #000;
+  transition: transform 0.3s ease;
+}
+
+.character-item:hover {
+  transform: scale(1.02);
+}
+
+.character-item img {
+  width: 200px;
+  height: auto;
+  border-right: 1px solid #333;
+  transition: transform 0.3s;
+}
+
+.character-item img:hover {
+  transform: scale(1.05);
+}
+
+.character-text {
+  padding: 20px;
+  text-align: left;
+  direction: ltr;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #222;
+  padding: 1em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #f00;
+}
+
+/* Layout */
+.episode-container {
+  display: flex;
+  max-width: 1000px;
+  margin: 30px auto;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.episode-list {
+  width: 25%;
+  background-color: #1a1a1a;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.episode-list h3 {
+  text-align: center;
+  color: #f00;
+  margin-bottom: 1em;
+}
+
+.episode-list button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.episode-list button:hover {
+  background-color: #f00;
+}
+
+/* Display Area */
+.display {
+  width: 75%;
+}
+
+.current-episode {
+  background-color: #8B0000; /* Bloody red */
+  text-align: center;
+  padding: 1em;
+  margin-bottom: -20px;
+  font-size: 1.2em;
+  border-radius: 8px 8px 0 0;
+  transform: translateY(-20px);
+}
+
+video {
+  width: 100%;
+  height: auto;
+  (b)o)r)der: 4px solid #8B0000;)
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 0 15px #000;
+}
+body {
+  font-family: 'Georgia', serif;
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+}
+
+/* تأثير الانتقال البصري */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* الغطاء الأسود المستخدم في التلاشي */
+#page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+#page-transition.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.manga-column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.manga-item {
+  text-align: center;
+  animation: floatUpDown 3s ease-in-out infinite;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.manga-item img {
+  width: 80%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manga-item:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px crimson;
+}
+
+.manga-item p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ccc;
+  font-family: 'Georgia', serif;
+}
+
+/* أنيميشن تنفس */
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+
+header {
+  position: relative;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.title-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.logo {
+	
+  position: absolute;
+  
+  top: -40%;
+  left: 33%;
+  
+  transform: translate(-50%, -50%);
+  
+  opacity: 100; /* شفافية الشعار */
+  height: 100px; /* يمكنك تعديله حسب الحجم المرغوب */
+  z-index: 1;
+  pointer-events: none; /* حتى لا يعترض التفاعل مع النص */
+}
+
+.site-title {
+  position: relative;
+  z-index: 2;
+  font-size: 2.5rem;
+  color: white;
+  margin: 0;
+}
+
+.side-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 100px;
+  width: auto;
+  z-index: 3;
+}
+

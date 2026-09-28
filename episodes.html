@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Episodes</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+  .logo {
+	
+  position: absolute;
+  
+  top: -40%;
+  left: 20%;
+  }
+  .site-title {
+  position: relative;
+  z-index: 2;
+  
+  color: white;
+  margin: auto;
+  }
+  </style>
+</head>
+<body>
+
+<div id="page-transition"></div>
+
+
+<video autoplay muted loop id="bg-video">
+  <source src="background.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<header>
+  <img src="photos/Berserk_anime_logo.png" alt="Side Icon" class="side-icon" />
+  <div class="title-wrapper">
+    <img src="sign sacrifice.png" alt="Sacrifice Mark" class="logo" />
+    <h1 class="site-title">Watching</h1>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="manga.html">Manga</a>
+  <a href="author.html">Author</a>
+  <a href="episodes.html">Episodes</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+  <h2>Welcome to Watchin page</h2>
+  <p>In this page U can watch all episode of berserk 1996-1997 it is old and classic</p>
+  </section>
+<!--
+<audio id="bg-music" loop>
+  <source src="THEME.mp3" type="audio/mp3"/>
+  Your browser does not support the audio element.
+</audio>
+<button id="play-audio">🔊 Enable Music</button>
+-->
+<section>
+  <div class="episode-container">
+    <!-- القائمة الجانبية -->
+    <div class="episode-list">
+      <h3>Episodes</h3>
+      <ul>
+        <li><button onclick="showEpisode(0)">Episode 1: The Brand</button></li>
+        <li><button onclick="showEpisode(1)">Episode 2: The Eclipse</button></li>
+        <li><button onclick="showEpisode(2)">Episode 3: Black Swordsman</button></li>
+      </ul>
+    </div>
+
+    <!-- عرض الفيديو -->
+    <div class="display">
+      <div class="current-episode" id="currentTitle">Episode 1: The Brand</div>
+      <video id="videoPlayer" controls>
+        <source id="videoSource" src="episodes/Berkserk Ep 01 مترجم.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Berserk Fan Community</p>
+  <p>Creat by Saleh</p>
+</footer>
+
+<script>
+/*
+  // زر تشغيل الموسيقى
+  const playBtn = document.getElementById("play-audio");
+  const music = document.getElementById("bg-music");
+
+  playBtn.addEventListener("click", () => {
+    music.play().then(() => {
+      playBtn.style.display = "none";
+    }).catch((err) => {
+      console.log("Audio play failed:", err);
+    });
+  });
+*/
+  // تغيير الحلقات
+  const episodes = [
+    { title: "Episode 1: The Brand", file: "episodes/Berkserk Ep 01 مترجم.mp4" },
+    { title: "Episode 2: The Eclipse", file: "episodes/Berkserk Ep 02 مترجم.mp4" },
+    { title: "Episode 3: Black Swordsman", file: "episodes/Berkserk Ep 03 مترجم.mp4" }
+  ];
+
+  function showEpisode(index) {
+    const player = document.getElementById("videoPlayer");
+    const source = document.getElementById("videoSource");
+    const title = document.getElementById("currentTitle");
+
+    // تغيير عنوان الحلقة
+    title.textContent = episodes[index].title;
+
+    // تغيير مصدر الفيديو
+    source.src = episodes[index].file;
+    player.load();
+    player.play();
+  }
+  
+</script>
+<script> // صوت النقر عند الضغط على الروابط
+  const clickSound = new Audio("mouse click audio/click_2.mp3");
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      clickSound.currentTime = 0;
+      clickSound.play();
+      setTimeout(() => {
+        window.location.href = this.href;
+      }, 280);
+    });
+  });</script>
+  
+  <script>
+  // تأثير دخول الصفحة
+  document.body.classList.add("fade-in");
+
+  // تأثير عند الانتقال لرابط
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return; // تجاهل الروابط الداخلية أو الزائفة
+
+      e.preventDefault(); // إيقاف التنقل المؤقت
+      document.body.classList.add("fade-out");
+
+      // بعد انتهاء تأثير الخروج، انتقل للرابط
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // نفس مدة الانتقال الموجودة في CSS
+    });
+  });
+</script>
+
+<script>
+  const clickSound = new Audio("sowrd-click.mp3");
+  const transitionOverlay = document.getElementById("page-transition");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+
+      if (!url || url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+
+      // تشغيل صوت النقر
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      // تفعيل طبقة التلاشي
+      transitionOverlay.classList.add("active");
+
+      // الانتقال بعد التلاشي
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // المدة تتطابق مع transition في CSS
+    });
+  });
+
+  // عند الدخول إلى الصفحة، اخفاء طبقة التلاشي (لإظهار fade-in)
+  window.addEventListener("DOMContentLoaded", () => {
+    transitionOverlay.classList.remove("active");
+  });
+</script>
+
+<script>
+  document.body.classList.add("fade-in");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600);
+    });
+  });
+</script>
+
+
+</body>
+</html>

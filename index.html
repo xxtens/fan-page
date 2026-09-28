@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Berserk Fan Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    
+
+
+  </style>
+</head>
+<body>
+
+<div id="page-transition"></div>
+
+
+<video autoplay muted loop id="bg-video">
+  <source src="background.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+<header>
+  <img src="photos/Berserk_anime_logo.png" alt="Side Icon" class="side-icon" />
+  <div class="title-wrapper">
+    <img src="sign sacrifice.png" alt="Sacrifice Mark" class="logo" />
+    <h1 class="site-title">Berserk Fan Page</h1>
+  </div>
+</header>
+
+
+
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="manga.html">Manga</a>
+  <a href="author.html">Author</a>
+  <a href="episodes.html">Episodes</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<audio id="bg-music" loop>
+  <source src="THEME.mp3" type="audio/mp3"/>
+  Your browser does not support the audio element.
+</audio>
+<button id="play-audio">🔊 Enable Music</button>
+<section>
+  <h2>Welcome to the World of Berserk</h2>
+  <p>Berserk is a legendary dark fantasy manga created by Kentaro Miura...</p> <br><a href="#">اختبر الصوت</a>
+  <br>
+  <!--
+  <div class="gallery">
+    <img src="guts.jpg" alt="Guts" />
+    <img src="griffith.jpg" alt="Griffith" />
+    <img src="casca.jpg" alt="Casca" />
+  </div>
+  -->
+  <div class="character-list">
+  <div class="character-list">
+  <div class="character-item">
+    <img src="guts.jpg" alt="Guts" />
+    <div class="character-text">
+      <h2>Guts</h2>
+      <p>Guts is a former mercenary known as the "Black Swordsman," a relentless warrior marked by a tragic past and immense physical strength. Once a member of the Band of the Hawk, he was betrayed during the Eclipse and has since embarked on a personal war against the apostles and the God Hand. Bearing the Brand of Sacrifice, he fights against fate while struggling to retain his humanity.</p>
+    </div>
+  </div>
+
+  <div class="character-item">
+    <img src="griffith.jpg" alt="Griffith" />
+    <div class="character-text">
+      <h2>Griffith</h2>
+      <p>Griffith is the charismatic and ambitious founder of the Band of the Hawk. Admired for his beauty, intelligence, and tactical brilliance, he sacrifices his comrades during the Eclipse to ascend as the fifth member of the God Hand, Femto. As Femto, he manipulates reality and fate, yet retains his worldly ambitions through his reincarnated form in the physical world.</p>
+    </div>
+  </div>
+
+  <div class="character-item">
+    <img src="casca.jpg" alt="Casca" />
+    <div class="character-text">
+      <h2>Casca</h2>
+      <p>Casca was the only female commander in the Band of the Hawk and Griffith’s most loyal follower. A skilled fighter and strategist, she shares a deep and complex bond with Guts. After enduring the trauma of the Eclipse, her mind regressed into a childlike state, leaving her vulnerable. She plays a central role in Guts’ struggle and in the fate of the world.</p>
+    </div>
+  </div>
+
+  <div class="character-item">
+    <img src="zodd.jpg" alt="Zodd" />
+    <div class="character-text">
+      <h2>Zodd</h2>
+      <p>Zodd the Immortal is a legendary apostle who has fought in countless wars for over three centuries. Towering and beastlike in his true form, he revels in battle and respects only those strong enough to challenge him. Despite being a servant of the God Hand, he acts on his own code of honor and often appears at key moments in Guts’ journey.</p>
+    </div>
+  </div>
+
+  <div class="character-item">
+    <img src="skullknight.jpg" alt="Skull Knight" />
+    <div class="character-text">
+      <h2>Skull Knight</h2>
+      <p>The Skull Knight is an enigmatic figure and a self-proclaimed "foe of the inhumans," having waged war against demonkind for a millennium. Approximately 1000 years old, he possesses vast knowledge of the world’s events and has remarkable foresight concerning the flow of causality. He breaks into the fifth Eclipse to save Guts and Casca, and later creates an astral fissure using his Sword of Beherits during the Great Roar of the Astral World.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+     
+   
+</section>
+
+<footer>
+  <p>&copy; 2025 Berserk Fan Community</p>
+   <p><b>Creat by Saleh </p>
+</footer>
+
+
+<script>
+  const playBtn = document.getElementById("play-audio");
+  const music = document.getElementById("bg-music");
+
+  playBtn.addEventListener("click", () => {
+    music.play().then(() => {
+      playBtn.style.display = "none"; // إخفاء الزر بعد التشغيل
+    }).catch((err) => {
+      console.log("Audio play failed:", err);
+    });
+  });
+</script>
+<script>
+  const clickSound = new Audio("mouse click audio/click_2.mp3");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // يمنع التوجيه الفوري
+
+      // تشغيل الصوت أولاً
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      // بعد أن يبدأ تشغيل الصوت، نعيد التوجيه للصفحة المطلوبة
+      setTimeout(() => {
+        window.location.href = this.href;
+      },  280); // يمكن تعديل الوقت حسب مدة الصوت
+    });
+  });
+</script>
+
+<script>
+  // تأثير دخول الصفحة
+  document.body.classList.add("fade-in");
+
+  // تأثير عند الانتقال لرابط
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return; // تجاهل الروابط الداخلية أو الزائفة
+
+      e.preventDefault(); // إيقاف التنقل المؤقت
+      document.body.classList.add("fade-out");
+
+      // بعد انتهاء تأثير الخروج، انتقل للرابط
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // نفس مدة الانتقال الموجودة في CSS
+    });
+  });
+</script>
+
+<script>
+  const clickSound = new Audio("sowrd-click.mp3");
+  const transitionOverlay = document.getElementById("page-transition");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+
+      if (!url || url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+
+      // تشغيل صوت النقر
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      // تفعيل طبقة التلاشي
+      transitionOverlay.classList.add("active");
+
+      // الانتقال بعد التلاشي
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600); // المدة تتطابق مع transition في CSS
+    });
+  });
+
+  // عند الدخول إلى الصفحة، اخفاء طبقة التلاشي (لإظهار fade-in)
+  window.addEventListener("DOMContentLoaded", () => {
+    transitionOverlay.classList.remove("active");
+  });
+</script>
+	
+<script>
+  document.body.classList.add("fade-in");
+
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function (e) {
+      const url = this.href;
+      if (url.includes("#") || url.startsWith("javascript")) return;
+
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 600);
+    });
+  });
+</script>
+
+
+</body>
+</html>
